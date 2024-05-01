@@ -20,14 +20,10 @@ class Router
   
     def route_action(action)
       case action
-      when 1 then @meals_controller.list
-      when 2 then @customer_controller.list
-      when 3 then @meals_controller.add
-      when 4 then @customer_controller.add
-      when 5 then @meals_controller.edit
-      when 6 then @customer_controller.edit
-      when 8 then @customer_controller.remove
-      when 9 then stop
+      when 1 then @controller.list
+      when 2 then @controller.list
+      when 3 then @controller.add
+      when 4 then stop
       end
     end
   
@@ -37,15 +33,11 @@ class Router
   
     def display_tasks
       puts "What do you want to do next?"
-      puts "1 - List all meals"
-      puts "2 - List all customers"
-      puts "3 - Add a new meal"
-      puts "4 - Add a new customer"
-      puts "5 - Edit a meal"
-      puts "6 - Edit a customer"
-      puts "7 - Remove a meal"
-      puts "8 - Remove a customer"
-      puts "9 - Stop and exit the program"
+      puts "1 - Look for trouble"
+      puts "2 - Sleep until tomorrow..."
+      puts "3 - Check Inventory"
+      puts "4 - Search for resources"
+      puts "5 - Save and Quit"
     end
   end
   
