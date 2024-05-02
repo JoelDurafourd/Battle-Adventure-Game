@@ -15,7 +15,8 @@ case user_input
     when 1 
         puts "What would you like to name your Character?"
         character_name = gets.chomp 
-        player_character = PlayerCharacter.new(character_name)
+        player_character = PlayerCharacter.new(attributes = {name: character_name}) if character_name != ""
+        player_character = PlayerCharacter.new if character_name == ""
     when 2
         player_character = load_player_character(csv_file_path)
         puts "Player loaded successfully"
