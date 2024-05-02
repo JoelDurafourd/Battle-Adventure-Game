@@ -35,4 +35,6 @@ class Controller
         new_battle = InBattle.new(self, @player_character, Goblin.new)
         new_battle.run 
     end 
+
+
 end 

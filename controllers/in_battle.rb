@@ -19,6 +19,12 @@ class InBattle
           action = gets.chomp.to_i
           print `clear`
           route_action(action)
+          if @player_character.health <= 0
+            @running = false
+          elsif @enemy_character.health <= 0
+            puts "#{@enemy_character} has been killed!"
+            @running = false
+          end 
         end
       end
     

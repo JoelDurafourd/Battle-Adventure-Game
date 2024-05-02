@@ -28,11 +28,16 @@ class Goblin
             return 0
         else 
             player.health -= @weapon_damage
-            puts "#{@name} attacked you with a #{@weapon} for #{@weapon_damage} damage!"
+            puts "#{@name} attacked you with a #{@weapon}, hitting you on the #{player_body_part_selector} for #{@weapon_damage} damage!"
         end 
     end 
 
     def enemy_status 
         puts "#{@name} - health: #{@health} - weapon: #{@weapon}"
+    end 
+
+    def player_body_part_selector
+        body_parts = ["head", "torso", "arm", "leg", "hand", "foot", "nose", "ear", "eyebrow", "belly button", "funny bone", "backside"]
+        body_parts.sample
     end 
   end

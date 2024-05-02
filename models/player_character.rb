@@ -19,7 +19,12 @@ class PlayerCharacter
             return 0
         else 
             enemy.health -= @weapon_damage
-            puts "You damaged #{enemy.name} with your #{@weapon} for #{@weapon_damage} damage!"
-        end 
+            puts "You struck #{enemy.name} on the #{enemy_body_part_selector} with your #{@weapon} for #{@weapon_damage} damage!"
+        end        
+    end 
+
+    def enemy_body_part_selector
+        body_parts = ["head", "torso", "arm", "leg", "hand", "foot", "nose", "ear", "eyebrow", "belly button", "funny bone", "backside"]
+        body_parts.sample
     end 
 end 
