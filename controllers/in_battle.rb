@@ -28,6 +28,7 @@ class InBattle
         when 1 
             @controller.death_check
             @controller.attack
+            
         when 2 then @controller.block
         when 3 then @controller.inventory
         when 4 

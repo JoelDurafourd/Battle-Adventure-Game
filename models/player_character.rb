@@ -1,5 +1,5 @@
 class PlayerCharacter 
-    attr_reader :name, :health, :hunger 
+    attr_reader :name, :health, :hunger, :weapon, :weapon_damage
     attr_accessor :alive
 
     def initialize(attributes = {})
@@ -7,6 +7,8 @@ class PlayerCharacter
         @name = attributes[:name] || "Player Character" 
         @health = attributes[:health] || 100
         @hunger = attributes[:hunger] || 100
+        @weapon = attributes[:weapon] || "fists"
+        @weapon_damage = attributes[:weapon_damage] || 5
     end 
 
 end 
