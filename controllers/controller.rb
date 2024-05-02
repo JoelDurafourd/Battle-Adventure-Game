@@ -1,4 +1,6 @@
 require_relative '../views/view.rb'
+require_relative '../controllers/in_battle.rb'
+require_relative '../models/goblin.rb'
 
 class Controller
 
@@ -27,5 +29,10 @@ class Controller
             @view.death_sequence 
             save_and_quit
         end 
+    end 
+
+    def start_battle 
+        new_battle = InBattle.new(self, @player_character, Goblin.new)
+        new_battle.run 
     end 
 end 

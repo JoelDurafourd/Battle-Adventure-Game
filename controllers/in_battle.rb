@@ -4,7 +4,7 @@ class InBattle
     @player_character = player_character
     @enemy_character = enemy_character
     @running = true 
-    @escape_chance = ["safe", "unsafe"]
+    @escape_chance = ["safe", "unsafe", "not safe"]
     end 
 
     def run
@@ -12,6 +12,7 @@ class InBattle
         puts "*" * 20
         @controller.death_check
         @controller.status
+        @enemy_character.enemy_status
     
         while @running
           display_tasks
@@ -27,12 +28,24 @@ class InBattle
         case action
         when 1 
             @controller.death_check
-            @controller.attack
-            
+            @player_character.attack(@enemy_character)
+            @enemy_character.enemy_status
+            @enemy_character.attack(@player_character)
+            @controller.death_check
+            @controller.status
         when 2 then @controller.block
         when 3 then @controller.inventory
         when 4 
-            stop if @escape_chance.sample == "safe"
+            if @escape_chance.sample == "safe"
+                puts "You escaped!"
+                stop
+            else 
+                puts "You failed to escape!"
+                puts "Your enemy attacks you!"
+                @enemy_character.attack(@player_character)
+                @controller.death_check
+                @controller.status
+            end 
         end
       end
     
@@ -41,7 +54,8 @@ class InBattle
       end
     
       def display_tasks
-        puts "What do you want to do next?"
+        sleep(1)
+        puts "What do you want to do?"
         puts "1 - Attack!"
         puts "2 - Block"
         puts "3 - Item"

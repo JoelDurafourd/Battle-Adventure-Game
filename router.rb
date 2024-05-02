@@ -22,7 +22,7 @@ class Router
   
     def route_action(action)
       case action
-      when 1 then @controller.something
+      when 1 then @controller.start_battle
       when 2 then @controller.something
       when 3 then @controller.something
       when 4 then stop
