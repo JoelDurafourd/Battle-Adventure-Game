@@ -25,6 +25,7 @@ class Router
       when 2 then @controller.something
       when 3 then @controller.something
       when 4 then stop
+      when 5 then stop
       end
     end
   

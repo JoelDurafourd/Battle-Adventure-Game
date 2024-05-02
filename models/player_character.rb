@@ -3,9 +3,9 @@ class PlayerCharacter
 
     def initialize(attributes = {})
         @alive = true 
-        @name = :name || "New Character" 
-        @health = :health || 100
-        @hunger = :hunger || 100
+        @name = attributes[:name] || "New Character" 
+        @health = attributes[:health] || 100
+        @hunger = attributes[:hunger] || 100
     end 
 
 end 
