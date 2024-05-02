@@ -1,11 +1,11 @@
 class PlayerCharacter 
     attr_reader :name, :health, :hunger 
-    
-    def initialize(name)
+
+    def initialize(attributes = {})
         @alive = true 
-        @name = name 
-        @health = 100 
-        @hunger = 100 
+        @name = :name || "New Character" 
+        @health = :health || 100
+        @hunger = :hunger || 100
     end 
 
 end 

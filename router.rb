@@ -7,6 +7,7 @@ class Router
     def run
       puts "BATTLE-ADVENTURE!!!"
       puts "*" * 20
+      @controller.status
   
       while @running
         display_tasks
@@ -20,9 +21,9 @@ class Router
   
     def route_action(action)
       case action
-      when 1 then @controller.list
-      when 2 then @controller.list
-      when 3 then @controller.add
+      when 1 then @controller.something
+      when 2 then @controller.something
+      when 3 then @controller.something
       when 4 then stop
       end
     end

@@ -1,5 +1,6 @@
-require_relative '/controllers/controller.rb'
-require_relative '/controllers/csv_loader_controller.rb'
+require_relative 'controllers/controller.rb'
+require_relative 'controllers/csv_loader_controller.rb'
+require_relative 'models/player_character.rb'
 # require_relative 'app/repositories/meal_repository'
 # require_relative 'app/controllers/customers_controller'
 # require_relative 'app/repositories/customer_repository'
@@ -9,7 +10,7 @@ puts "Create a new Character, or load an existing one?"
     puts "1 - Create a new Character"
     puts "2 - Load an existing one"
     puts "3 - Quit"
-user_input = gets.chomp 
+user_input = gets.chomp.to_i
 case user_input
     when 1 
         puts "What would you like to name your Character?"
@@ -18,7 +19,8 @@ case user_input
     when 2
         player_character = load_player_character(csv_file_path)
         puts "Player loaded successfully"
-    when 3 then break 
+    when 3
+        exit
 end
 
 # player_character = load_player_character(csv_file_path)
