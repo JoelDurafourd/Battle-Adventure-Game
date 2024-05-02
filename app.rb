@@ -9,7 +9,7 @@ csv_file_path = File.join(__dir__, 'data', 'player_characters.csv')
 
 puts "Create a new Character, or load an existing one?"
     puts "1 - Create a new Character"
-    puts "2 - Load an existing one"
+    puts "2 - Load an existing Character"
     puts "3 - Quit"
 user_input = gets.chomp.to_i
 case user_input

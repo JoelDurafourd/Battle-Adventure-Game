@@ -1,5 +1,6 @@
 class PlayerCharacter 
-    attr_reader :alive, :name, :health, :hunger 
+    attr_reader :name, :health, :hunger 
+    attr_accessor :alive
 
     def initialize(attributes = {})
         @alive = true 

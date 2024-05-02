@@ -7,6 +7,7 @@ class Router
     def run
       puts "BATTLE-ADVENTURE!!!"
       puts "*" * 20
+      @controller.death_check
       @controller.status
   
       while @running

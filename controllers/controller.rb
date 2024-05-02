@@ -15,4 +15,17 @@ class Controller
     def save_and_quit
         csv_save(@csv_file_path, @player_character)
     end 
+
+    def player_vitals
+        if @player_character.health.zero? || @player_character.hunger.zero?
+            @player_character.alive = false 
+        end 
+    end 
+
+    def death_check
+        if @player_character.alive == false 
+            @view.death_sequence 
+            save_and_quit
+        end 
+    end 
 end 
