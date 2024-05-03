@@ -1,2 +1,2 @@
 alive,name,health,hunger,weapon,weapon_damage
-true,Jum,38,100,fists,5
+true,Jum,-1,100,fists,5

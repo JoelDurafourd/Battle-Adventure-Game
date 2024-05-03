@@ -19,12 +19,7 @@ class InBattle
           action = gets.chomp.to_i
           print `clear`
           route_action(action)
-          if @player_character.health <= 0
-            @running = false
-          elsif @enemy_character.health <= 0
-            puts "#{@enemy_character} has been killed!"
-            @running = false
-          end 
+          battle_ender
         end
       end
     
@@ -36,9 +31,11 @@ class InBattle
             @controller.death_check
             @player_character.attack(@enemy_character)
             @enemy_character.enemy_status
+            battle_ender 
             @enemy_character.attack(@player_character)
             @controller.death_check
             @controller.status
+            battle_ender 
         when 2 then @controller.block
         when 3 then @controller.inventory
         when 4 
@@ -47,7 +44,7 @@ class InBattle
                 stop
             else 
                 puts "You failed to escape!"
-                puts "Your enemy attacks you!"
+                puts "#{@enemy_character.name} attacks you!"
                 @enemy_character.attack(@player_character)
                 @controller.death_check
                 @controller.status
@@ -67,5 +64,14 @@ class InBattle
         puts "3 - Item"
         puts "4 - Try to run"
       end
+
+      def battle_ender 
+        if @player_character.health <= 0
+          @running = false
+        elsif @enemy_character.health <= 0
+          puts "#{@enemy_character.name} has been killed!"
+          @running = false
+        end 
+      end 
 
 end 
