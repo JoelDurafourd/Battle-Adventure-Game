@@ -19,7 +19,6 @@ class InBattle
           action = gets.chomp.to_i
           print `clear`
           route_action(action)
-          battle_ender
         end
       end
     
@@ -37,6 +36,9 @@ class InBattle
             @controller.status
             battle_ender 
         when 2 then @controller.block
+          @enemy_character.block(@player_character)
+          @controller.death_check(@player_character)
+          @controller.status
         when 3 then @controller.inventory
         when 4 
             if @escape_chance.sample == "safe"
@@ -67,10 +69,10 @@ class InBattle
 
       def battle_ender 
         if @player_character.health <= 0
-          @running = false
+          stop 
         elsif @enemy_character.health <= 0
           puts "#{@enemy_character.name} has been killed!"
-          @running = false
+          stop
         end 
       end 
 
