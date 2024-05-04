@@ -1,12 +1,12 @@
 class PlayerCharacter 
-    attr_reader :name, :hunger, :weapon, :weapon_damage
-    attr_accessor :alive, :health
+    attr_reader :name, :hunger, :weapon, :weapon_damage, :alive
+    attr_accessor :health
 
     def initialize(attributes = {})
-        @alive = true 
         @name = attributes[:name] || "Player Character" 
         @health = attributes[:health].to_i || 100
         @hunger = attributes[:hunger].to_i || 100
+        @alive = alive?
         @weapon = attributes[:weapon] || "fists"
         @weapon_damage = attributes[:weapon_damage].to_i || 5
     end 
@@ -26,5 +26,15 @@ class PlayerCharacter
     def enemy_body_part_selector
         body_parts = ["head", "torso", "arm", "leg", "hand", "foot", "nose", "ear", "eyebrow", "belly button", "funny bone", "backside"]
         body_parts.sample
+    end 
+
+    def alive? 
+        if @health <= 0
+            false 
+        elsif @hunger <= 0
+            false 
+        else 
+            true 
+        end 
     end 
 end 

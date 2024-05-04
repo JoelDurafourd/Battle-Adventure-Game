@@ -18,16 +18,11 @@ class Controller
         csv_save(@csv_file_path, @player_character)
     end 
 
-    def player_vitals
-        if @player_character.health.zero? || @player_character.hunger.zero?
-            @player_character.alive = false 
-        end 
-    end 
-
-    def death_check
+    def death_check(player_character)
         if @player_character.alive == false 
             @view.death_sequence 
             save_and_quit
+            exit
         end 
     end 
 
@@ -35,6 +30,4 @@ class Controller
         new_battle = InBattle.new(self, @player_character, Goblin.new)
         new_battle.run 
     end 
-
-
 end 
