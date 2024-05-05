@@ -12,11 +12,11 @@ class Goblin < EnemyClass
   
     def select_random_weapon
         weapons = {
-            "Attack-Chicken" => 10,
-            "Iron Dagger" => 30,
-            "Squeaky Mace" => 10,
-            "Gauntlet with a hand in it" => 20,
-            "Tickle Feather" => 10
+            "Attack-Chicken" => 1,
+            "Iron Dagger" => 3,
+            "Squeaky Mace" => 1,
+            "Gauntlet with a hand in it" => 2,
+            "Tickle Feather" => 1
         }
       weapon = weapons.keys.sample  
       [weapon, weapons[weapon]]  
