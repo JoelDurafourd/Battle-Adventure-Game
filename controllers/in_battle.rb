@@ -31,7 +31,7 @@ class InBattle
         when 1 
           player_attacks 
           enemy_attacks 
-        when 2 then @controller.block
+        when 2 then
           @enemy_character.block(@player_character)
           @controller.death_check(@player_character)
           @controller.status
