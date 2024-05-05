@@ -1,6 +1,8 @@
 require_relative '../views/view.rb'
 require_relative '../controllers/in_battle.rb'
 require_relative '../models/goblin.rb'
+require_relative '../models/enemy_class.rb'
+require_relative '../models/player_character.rb'
 
 class Controller
 
@@ -19,7 +21,7 @@ class Controller
     end 
 
     def death_check(player_character)
-        if @player_character.alive == false 
+        if @player_character.alive? == false 
             @view.death_sequence 
             save_and_quit
             exit

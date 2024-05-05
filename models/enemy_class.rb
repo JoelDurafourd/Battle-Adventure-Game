@@ -1,8 +1,8 @@
-class Enemy
+class EnemyClass
     attr_reader :name, :weapon, :weapon_damage
     attr_accessor :health
   
-    def initialize
+    def initialize(name)
       @name = name
       @health = 50  
       @weapon, @weapon_damage = select_random_weapon
@@ -10,11 +10,7 @@ class Enemy
   
     def select_random_weapon
         weapons = {
-            "Attack-Chicken" => 1,
-            "Iron Dagger" => 3,
-            "Squeaky Mace" => 1,
-            "Gauntlet with a hand in it" => 2,
-            "Tickle Feather" => 1
+            "sword" => 1,
         }
       weapon = weapons.keys.sample 
       [weapon, weapons[weapon]]  

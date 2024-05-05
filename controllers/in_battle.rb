@@ -66,6 +66,7 @@ class InBattle
       def battle_ender 
         if @player_character.health <= 0
           stop 
+          @controller.death_check(@player_character)
         elsif @enemy_character.health <= 0
           stop
         end 

@@ -7,7 +7,7 @@ class Router
     def run
       puts "BATTLE-ADVENTURE!!!"
       puts "*" * 20
-      # @controller.death_check(@player_character)
+      @controller.death_check(@player_character)
       @controller.status
   
       while @running
@@ -23,6 +23,7 @@ class Router
     private
   
     def route_action(action)
+      @controller.death_check(@player_character)
       case action
       when 1 then @controller.start_battle
       when 2 then @controller.something
@@ -39,6 +40,7 @@ class Router
     end
   
     def display_tasks
+      @controller.death_check(@player_character)
       puts "What do you want to do next?"
       puts "1 - Look for trouble"
       puts "2 - Sleep until tomorrow..."
