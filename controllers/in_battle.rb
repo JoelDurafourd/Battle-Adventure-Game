@@ -19,6 +19,8 @@ class InBattle
           action = gets.chomp.to_i
           print `clear`
           route_action(action)
+          battle_ender 
+          @controller.death_check(@player_character)
         end
       end
     
@@ -27,14 +29,8 @@ class InBattle
       def route_action(action)
         case action
         when 1 
-            @controller.death_check(@player_character)
-            @player_character.attack(@enemy_character)
-            @enemy_character.enemy_status
-            battle_ender 
-            @enemy_character.attack(@player_character)
-            @controller.death_check(@player_character)
-            @controller.status
-            battle_ender 
+          player_attacks 
+          enemy_attacks 
         when 2 then @controller.block
           @enemy_character.block(@player_character)
           @controller.death_check(@player_character)
@@ -71,9 +67,30 @@ class InBattle
         if @player_character.health <= 0
           stop 
         elsif @enemy_character.health <= 0
-          puts "#{@enemy_character.name} has been killed!"
           stop
         end 
       end 
 
+      def player_attacks 
+        battle_ender 
+        if @running == true 
+          @controller.death_check(@player_character)
+          @player_character.attack(@enemy_character)
+          @enemy_character.enemy_status
+        end 
+      end 
+
+      def enemy_attacks 
+        battle_ender 
+        if @running == true 
+          @enemy_character.attack(@player_character)
+          @controller.death_check(@player_character)
+          @controller.status
+        end 
+        enemy_killed_message
+      end 
+      
+      def enemy_killed_message 
+          puts "#{@enemy_character.name} has been killed!" if @enemy_character.health <= 0
+      end 
 end 

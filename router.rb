@@ -11,10 +11,12 @@ class Router
       @controller.status
   
       while @running
+        @controller.death_check(@player_character)
         display_tasks
         action = gets.chomp.to_i
         print `clear`
         route_action(action)
+        
       end
     end
   
