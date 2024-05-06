@@ -1,2 +1,2 @@
-alive,name,health,hunger,weapon,weapon_damage
-Jum,94,100,fists,5
+alive,name,health,hunger,weapon,weapon_damage,location
+kujgh,100,100,fists,5,StartingLocation

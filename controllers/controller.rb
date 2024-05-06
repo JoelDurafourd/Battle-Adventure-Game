@@ -3,6 +3,8 @@ require_relative '../controllers/in_battle.rb'
 require_relative '../models/goblin.rb'
 require_relative '../models/enemy_class.rb'
 require_relative '../models/player_character.rb'
+require_relative '../models/wooded_clearing.rb'
+require_relative '../models/woods.rb'
 
 class Controller
 
@@ -28,12 +30,14 @@ class Controller
         end 
     end 
 
-    def start_battle 
-        new_battle = InBattle.new(self, @player_character, Goblin.new)
+    def start_battle(selected_enemy)
+        new_battle = InBattle.new(self, @player_character, selected_enemy.new)
         new_battle.run 
     end 
 
-    def enemy_selector
-
+    def location_selector
+        location = [WoodedClearing, Woods].sample
+        new_location = location.new(self)
+        new_location.run
     end 
 end 

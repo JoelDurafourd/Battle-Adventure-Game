@@ -1,6 +1,6 @@
 class PlayerCharacter 
     attr_reader :name, :hunger, :weapon, :weapon_damage
-    attr_accessor :health
+    attr_accessor :health, :location
 
     def initialize(attributes = {})
         @name = attributes[:name] || "Player Character" 
@@ -8,6 +8,7 @@ class PlayerCharacter
         @hunger = (attributes[:hunger] || 100).to_i
         @weapon = attributes[:weapon] || "fists"
         @weapon_damage = (attributes[:weapon_damage] || 5).to_i
+        @location = attributes[:location] || StartingLocation
     end 
 
     def attack(enemy)

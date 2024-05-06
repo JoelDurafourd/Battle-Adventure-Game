@@ -33,7 +33,7 @@ class EnemyClass
       sleep(1)
       if miss_chance == 3 
           puts "You failed to block! #{@weapon_damage} damage!"
-          enemy.health -= @weapon_damage
+          player.health -= @weapon_damage
       else 
           puts "#{@name} attacked you with a #{@weapon}, but you succesfully blocked it for 0 damage!"
           return 0

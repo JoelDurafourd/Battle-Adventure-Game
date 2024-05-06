@@ -11,7 +11,7 @@ class Orc < EnemyClass
     end
   
     def select_random_weapon
-      weapon = {
+      weapons = {
         "Rusted Sword" => 5,
         "Heavy Mace" => 6,
         "Battle Axe" => 7,
