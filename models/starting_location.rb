@@ -26,29 +26,6 @@ class StartingLocation < Location
       end
     end
 
-    def route_action(action)
-      @controller.death_check(@player_character)
-      case action
-      when 1 then @controller.start_battle(enemies_available)
-      when 2 then @controller.something
-      when 3 then @controller.something
-      when 4 then @controller.something
-      when 5
-        @controller.location_selector
-        stop
-      when 6 
-        @controller.save_and_quit
-        stop
-      end
-    end
-  
-    private
-  
-  
-    def stop
-      @running = false
-    end
-  
     def display_tasks
       @controller.death_check(@player_character)
       puts "What do you want to do next?"

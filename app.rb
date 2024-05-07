@@ -6,7 +6,7 @@ require_relative 'models/woods.rb'
 require_relative 'models/wooded_clearing.rb'
 
 csv_file_path = File.join(__dir__, 'data', 'player_characters.csv')
-location = StartingLocation
+location = "StartingLocation"
 
 puts "Create a new Character, or load an existing one?"
     puts "1 - Create a new Character"

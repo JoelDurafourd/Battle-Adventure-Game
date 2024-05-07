@@ -38,7 +38,7 @@ class Controller
     def location_selector
         location = [WoodedClearing, Woods].sample
         new_location = location.new(self)
-        @player_character.location = new_location
+        @player_character.location = new_location.class
         new_location.run
     end 
 end 
