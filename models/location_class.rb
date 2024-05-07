@@ -30,7 +30,7 @@ class Location
       @controller.death_check(@player_character)
       case action
       when 1 then @controller.start_battle(enemies_available)
-      when 2 then @controller.something
+      when 2 then @controller.a_day_passes
       when 3 then @controller.something
       when 4 then @controller.something
       when 5

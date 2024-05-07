@@ -6,7 +6,7 @@ class Orc < EnemyClass
   
     def initialize(name = "Orc")
       @name = name
-      @health = 50 
+      @health = 100
       @weapon, @weapon_damage = select_random_weapon
     end
   

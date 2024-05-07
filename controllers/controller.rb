@@ -41,4 +41,9 @@ class Controller
         @player_character.location = new_location.class
         new_location.run
     end 
+
+    def a_day_passes
+        @player_character.hunger -= 20
+        @view.awake_hunger(@player_character)
+    end 
 end 

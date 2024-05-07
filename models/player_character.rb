@@ -1,6 +1,6 @@
 class PlayerCharacter 
-    attr_reader :name, :hunger, :weapon, :weapon_damage
-    attr_accessor :health, :location
+    attr_reader :name, :weapon, :weapon_damage
+    attr_accessor :health, :location, :hunger
 
     def initialize(attributes = {})
         @name = attributes[:name] || "Player Character" 
