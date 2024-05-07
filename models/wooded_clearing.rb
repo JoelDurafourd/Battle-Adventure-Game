@@ -3,7 +3,7 @@ require_relative '../models/player_character.rb'
 
 class WoodedClearing < Location
     def initialize(controller)
-      @location_name = "Wooded Clearing"
+      @location_name = "wooded clearing"
       @controller = controller
       @running = true
     end

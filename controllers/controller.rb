@@ -36,9 +36,11 @@ class Controller
     end 
 
     def location_selector
+        @player_character.hunger -= 20
         location = [WoodedClearing, Woods].sample
         new_location = location.new(self)
         @player_character.location = new_location.class
+        puts "Travelling has made you tired and hungry, so you decide to stop in a #{new_location.name}"
         new_location.run
     end 
 

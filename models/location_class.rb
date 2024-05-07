@@ -23,6 +23,10 @@ class Location
         
       end
     end
+
+    def name 
+      @location_name
+    end 
   
     private
   
