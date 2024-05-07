@@ -6,7 +6,6 @@ class Woods < Location
       @location_name = "forest"
       @controller = controller
       @running = true
-      @player_character.location = self
     end
   
     def run
@@ -34,7 +33,9 @@ class Woods < Location
       when 2 then @controller.something
       when 3 then @controller.something
       when 4 then @controller.something
-      when 5 then stop
+      when 5
+        @controller.location_selector
+        stop
       when 6 
         @controller.save_and_quit
         stop

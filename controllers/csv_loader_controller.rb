@@ -11,9 +11,9 @@ def load_player_character(csv_file_path)
 end
 
 def csv_save(csv_file_path, player_character)
-    headers = ["alive", "name", "health", "hunger", "weapon", "weapon_damage", "location"]
+    headers = ["name", "health", "hunger", "weapon", "weapon_damage", "location"]
     CSV.open(csv_file_path, "wb") do |csv|
         csv << headers
-        csv << [player_character.name, player_character.health, player_character.hunger, player_character.weapon, player_character.weapon_damage, player_character.location]
+        csv << [player_character.name, player_character.health, player_character.hunger, player_character.weapon, player_character.weapon_damage, player_character.location.class]
     end
   end

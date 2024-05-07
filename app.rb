@@ -2,6 +2,9 @@ require_relative 'controllers/controller.rb'
 require_relative 'controllers/csv_loader_controller.rb'
 require_relative 'models/player_character.rb'
 require_relative 'models/starting_location.rb'
+require_relative 'models/woods.rb'
+require_relative 'models/wooded_clearing.rb'
+
 csv_file_path = File.join(__dir__, 'data', 'player_characters.csv')
 location = StartingLocation
 
@@ -24,16 +27,10 @@ case user_input
         exit
 end
 
-# player_character = load_player_character(csv_file_path)
+location_instance = location = Object.const_get(location)
 
-# csv_player_inventory = File.join(__dir__, '/data/item_repository.csv')
-# item_repository = ItemRepository.new(csv_player_inventory)
 controller = Controller.new(player_character, csv_file_path)
 
-# csv_customers = File.join(__dir__, 'data/customers.csv')
-# customer_repository = CustomerRepository.new(csv_customers)
-# customer_controller = CustomersController.new(customer_repository)
-
-router = location.new(controller)
+router = location_instance.new(controller)
 
 router.run
